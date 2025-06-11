@@ -19,6 +19,8 @@ services:
       WORDPRESS_ADMIN_USER: admin
       WORDPRESS_ADMIN_PASSWORD: password
       WORDPRESS_ADMIN_EMAIL:
+    networks:
+      - acc_network
 
   db:
     build: ./db
@@ -32,13 +34,28 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: root
       MYSQL_PASSWORD: password
+    networks:
+      - acc_network
 
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
-    - 8001:80
+      - 8001:80
     restart: always
     environment:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: password
+    networks:
+      - acc_network
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --no-autoupdate run --token eyJhIjoiY2I0OGM1NGI4OTVhMjlmNDc3YjdmNzc5YTQ5Y2FiMGYiLCJ0IjoiNDUwZTdjNTItNjU4Ny00Nzc0LWIzYmMtMTkzYmNjNTZkYzBkIiwicyI6IlpXUmlNMkV5TmpVdE1UTTBZaTAwWW1NMUxX>
+    networks:
+      - acc_network
+
+networks:
+  acc_network:
+    driver: bridge
