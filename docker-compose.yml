@@ -52,7 +52,7 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:latest
     restart: always
-    command: tunnel --no-autoupdate run --token eyJhIjoiY2I0OGM1NGI4OTVhMjlmNDc3YjdmNzc5YTQ5Y2FiMGYiLCJ0IjoiNDUwZTdjNTItNjU4Ny00Nzc0LWIzYmMtMTkzYmNjNTZkYzBkIiwicyI6IlpXUmlNMkV5TmpVdE1UTTBZaTAwWW1NMUxX>
+    command: tunnel --no-autoupdate run --token eyJhIjoiY2I0OGM1NGI4OTVhMjlmNDc3YjdmNzc5YTQ5Y2FiMGYiLCJ0IjoiNDUwZTdjNTItNjU4Ny00Nzc0LWIzYmMtMTkzYmNjNTZkYzBkIiwicyI6IlpXUmlNMkV5TmpVdE1UTTBZaTAwWW1NMUxXSTFOell0WW1OaE9HVXpaR1pqWW1FNCJ9
     networks:
       - acc_network
 
